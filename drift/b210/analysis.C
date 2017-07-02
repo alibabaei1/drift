@@ -5,7 +5,7 @@
 #include <TCanvas.h>
 #include <TROOT.h>
 #include <TRint.h>
-
+#include <TColor.h>
 void analysis::Loop()
 {
 //   In a ROOT session, you can do:
@@ -63,10 +63,18 @@ void analysis::Loop()
       
       // if (Cut(ientry) < 0) continue;
    }
+   TCanvas *ca1 = new TCanvas();
    driftTimesHisto->GetXaxis()->SetTitle("Zeit / ns");
    driftTimesHisto->GetYaxis()->SetTitle("Trefferanzahl");
    //gStyle->SetOptStat(0);
    driftTimesHisto->Draw();
+   ca1-> Print("dtime1.eps");
+   TCanvas *ca = new TCanvas();
+   wireCorrHisto->GetXaxis()->SetTitle("WIERC1");
+   wireCorrHisto->GetYaxis()->SetTitle("WIREC2");
+   //gStyle->SetOptStat(0);
+   wireCorrHisto->Draw("colz");
+   ca->Print("wire1.eps");
 }
 
 int main(int argc, char** argv) {
