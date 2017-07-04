@@ -72,9 +72,9 @@ analysis::analysis(TTree *tree) : fChain(0)
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
    if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("run_170614_125408.root");
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("run_170614_123031.root ");
       if (!f || !f->IsOpen()) {
-         f = new TFile("run_170614_125408.root");
+         f = new TFile("run_170614_123031.root ");
       }
       f->GetObject("t",tree);
 
